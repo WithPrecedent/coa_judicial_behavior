@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: "If you use coa-judicial-behavior in your research, please cite it and the studies whose methods it follows, as below."
+type: software
+title: "coa-judicial-behavior: Ideology, activism, partisanship, and independence scores of federal appellate judges from CourtListener opinions"
+abstract: >-
+  A Python package that computes the ideology, activism, partisanship, and
+  independence scores and judging styles of the judges of the federal courts
+  of appeals, following the methods of Corey Rayburn Yung's studies, from
+  opinions that courtpy collects from CourtListener and codes, and adds them
+  to every vote as variables for control and prediction.
+authors:
+  - given-names: Corey Rayburn
+    family-names: Yung
+    email: coreyrayburnyung@gmail.com
+    orcid: "https://orcid.org/0000-0001-6524-9956"
+version: 0.0.1
+license: Apache-2.0
+repository-code: "https://github.com/WithPrecedent/coa_judicial_behavior"
+url: "https://WithPrecedent.github.io/coa_judicial_behavior"
+keywords:
+  - courtlistener
+  - courts of appeals
+  - empirical legal studies
+  - judicial activism
+  - judicial behavior
+  - judicial ideology
+  - judicial independence
+  - partisanship
+references:
+  - type: article
+    title: "Judged by the Company You Keep: An Empirical Study of the Ideologies of Judges on the United States Courts of Appeals"
+    authors:
+      - given-names: Corey Rayburn
+        family-names: Yung
+    journal: "Boston College Law Review"
+    volume: 51
+    start: 1133
+    year: 2010
+  - type: article
+    title: "Flexing Judicial Muscle: An Empirical Study of Judicial Activism in the Federal Courts"
+    authors:
+      - given-names: Corey Rayburn
+        family-names: Yung
+    journal: "Northwestern University Law Review"
+    volume: 105
+    start: 1
+    year: 2011
+  - type: article
+    title: "Beyond Ideology: An Empirical Study of Partisanship and Independence in the Federal Courts"
+    authors:
+      - given-names: Corey Rayburn
+        family-names: Yung
+    journal: "George Washington Law Review"
+    volume: 80
+    start: 505
+    year: 2012
+  - type: article
+    title: "A Typology of Judging Styles"
+    authors:
+      - given-names: Corey Rayburn
+        family-names: Yung
+    journal: "Northwestern University Law Review"
+    volume: 107
+    start: 1757
+    year: 2013

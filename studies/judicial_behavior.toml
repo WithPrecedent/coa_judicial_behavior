@@ -1,0 +1,221 @@
+# The ideology, activism, partisanship, and independence of the judges of the
+# federal courts of appeals, from their opinions on CourtListener.
+#
+# Corey Rayburn Yung's studies measured four traits of appellate judges from
+# the 30,000 votes of eleven circuits in 2008: ideology (Judged by the
+# Company You Keep, 51 B.C. L. Rev. 1133 (2010)), activism (Flexing Judicial
+# Muscle, 105 Nw. U. L. Rev. 1 (2011)), partisanship and independence
+# (Beyond Ideology, 80 Geo. Wash. L. Rev. 505 (2012)), and all four together,
+# with the judging styles that they make (A Typology of Judging Styles, 107
+# Nw. U. L. Rev. 1757 (2013)). This study computes them from every published
+# and unpublished opinion of the twelve regional circuits since 2008, and
+# then asks how well they predict what judges do in later years.
+#
+# Each row is one judge's vote on one case, as courtpy's table of votes
+# makes it: whether the judge voted to reverse (the label), dissented, or
+# concurred, with the judge's super-panel (the two copanelists and the
+# district judge whose judgment they reviewed) and the standard of review.
+#
+# * "wrangler" collects and codes the opinions, keeps the decisions of
+#   three-judge panels that apply a standard of review (leaving out habeas
+#   corpus and immigration, as the studies did), and makes the votes.
+# * "scorer" scores the judges from the votes through 2020, sorts them into
+#   judging styles, adds the scores and the variables made from them to
+#   every vote, and repeats the studies' tests on the votes after 2020.
+# * "inference" estimates how each score changes the odds of reversal, with
+#   a fixed effect for each circuit and year.
+# * "analyst" predicts the votes of the last quarter of the years (which
+#   fall after 2020, so the scores never saw them) and compares models.
+#
+# Run it from a terminal, in the project's root folder, after making the
+# roster of judges once ("uv run coa-judicial-behavior judges"):
+#
+#     uv run coa-judicial-behavior run studies/judicial_behavior.toml --export
+#
+# The first run extracts the opinions from CourtListener's bulk data (about
+# 63 GB, kept outside the project and used again), which takes a few hours,
+# and parses them. The coded appeals are saved in "data/appeals.parquet", and
+# later runs reuse them. Delete that file (or set "reuse = false") after
+# changing the loader's parameters, the rules, or the roster.
+
+# The label ("vote_reversal") and the groups ("case_id", since the judges of
+# a case decide it together) are set where the votes are made, in
+# "review_votes_parameters", because the table of cases has neither.
+[general]
+seed = 43
+
+[files]
+input_folder = "data"
+interim_folder = "data"
+output_folder = "results"
+
+[judges_project]
+judges_workers = "wrangler, scorer, selector, explorer, inference, analyst, critic, artist"
+
+[wrangler]
+techniques = "load_court_listener, drop_missing, filter_rows, review_votes"
+
+[load_court_listener_parameters]
+source = "court_listener"
+download = "bulk"
+# The twelve regional circuits. The studies left out the D.C. Circuit, whose
+# docket is mostly agency review; add "and court_num != 12" to the query of
+# filter_rows to do the same.
+courts = "federal_circuits"
+start_date = "2008-01-01"
+# courtpy's federal rules, and the rules that find the district judge, the
+# origin of the appeal, immigration review, and two more deferential
+# standards of review.
+rulebooks = "federal, src/coa_judicial_behavior/instructions/review.csv"
+workers = 8
+# courtpy's coders find the parties, whether each case is criminal, and
+# whether the decision reversed. "code_judges" finds each panel's judges in
+# the roster and "code_politics" adds the party of the president.
+# This project's "code_district_judge" finds the district judge in the
+# roster, and "code_review" sorts each case by its standard of review.
+coders = "code_parties, code_case_type, code_outcome, code_judges, code_politics, code_district_judge, code_review"
+# Parquet keeps the lists of names and the types of the columns.
+save = "appeals.parquet"
+reuse = true
+
+[drop_missing_parameters]
+columns = ["outcome_reversal", "court_num", "year"]
+
+# Decisions of three-judge panels that apply a standard of review, at least
+# two of whose judges were found in the roster. Habeas corpus and
+# immigration cases have unique standards of review, so the studies left
+# them out.
+[filter_rows_parameters]
+query = "not review_excluded and review_has_standard and panel_size == 3 and panel_found >= 2"
+
+# A row for each judge on each case, with the judge's attributes, the
+# super-panel, and the judge's vote.
+[review_votes_parameters]
+outcomes = "outcome_reversal"
+label = "vote_reversal"
+groups = "case_id"
+
+[scorer]
+techniques = "score_judges, validate_scores"
+
+# The scores come from the votes through 2020. The later votes are marked
+# "holdout", and the tests and the analyst's test set use only them.
+[score_judges_parameters]
+train = "year <= 2020"
+# "typology" follows the 2013 article, which revised the earlier methods;
+# "original" follows each score's first article.
+method = "typology"
+# The studies scored the judges with at least 200 interactions with other
+# judges (two copanelists and a district judge on each vote).
+minimum = 200
+clusters = 9
+# To score each year separately, as the studies scored 2008, set:
+# by = "year"
+
+[validate_scores_parameters]
+holdout_only = true
+
+# The features: the judge's scores and the panel's, the variables that the
+# studies predicted with, and the controls. Columns that record the outcome
+# itself (the disposition, the dissents and concurrences of the case) are
+# left out, because they would give the answer away.
+# Columns with one value (such as "review_of_district" in a study of
+# district court appeals alone) are dropped, since no model can use them.
+[selector]
+techniques = "keep_columns, drop_constant"
+
+[keep_columns_parameters]
+columns = [
+    # The judge's scores and the panel's.
+    "judge_ideology", "judge_ideological", "judge_activism",
+    "judge_partisanship", "judge_independence", "colleagues_ideology",
+    "colleagues_activism", "colleagues_partisanship",
+    "colleagues_independence", "panel_ideology_median",
+    "panel_independence_max", "ideological_distance", "circuit_deviation",
+    # The predictors of the studies' tests.
+    "ideological_pressure", "partisan_pressure", "activist_pressure",
+    "expected_reversal",
+    # The case and its review.
+    "type_criminal", "review_deferential", "review_de_novo",
+    "review_of_district", "published", "court_num", "year",
+    # The super-panel: how many copanelists Republicans appointed, and the
+    # district judge. (Its alignment, such as "RR-D", is text, which the
+    # probit model of "inference" cannot use, but "expected_reversal" holds
+    # what the alignment predicts.)
+    "colleagues_republican", "district_party", "district_opposed",
+    # The judge.
+    "judge_party", "judge_jcs", "judge_woman", "judge_minority", "judge_age",
+    "judge_senior", "judge_designated", "judge_prosecutor",
+    "judge_public_defender", "judge_law_professor", "judge_state_judge",
+    "judge_justice_department",
+]
+# The party of the president ("politics_president_party") is left out: it is
+# the same in every vote of a year, so the fixed effect of the year in
+# "inference" holds it.
+
+[explorer]
+techniques = "summarize, label_balance"
+
+# A probit model of whether the judge voted to reverse, with a fixed effect
+# for each circuit and each year.
+[inference]
+techniques = "fixest"
+
+[fixest_parameters]
+fixed_effects = ["court_num", "year"]
+family = "probit"
+
+# Prediction: the last quarter of the votes by year is the test set, which
+# falls after the votes that the scores came from. Each model is
+# cross-validated on the training votes, keeping the judges of each case
+# together.
+[analyst]
+design = "experiment"
+criterion = "roc_auc"
+steps = "split, impute, encode, model, validate"
+split_techniques = "time_split"
+impute_techniques = "median_impute"
+encode_techniques = "one_hot"
+model_techniques = "logit, random_forest, gradient_boosting"
+validate_techniques = "group_k_fold"
+
+[time_split_parameters]
+test_size = 0.25
+order = "year"
+
+[logit_parameters]
+max_iter = 2000
+
+[random_forest_parameters]
+n_estimators = 300
+min_samples_leaf = 20
+
+[group_k_fold_parameters]
+n_splits = 5
+# Without named metrics, a fold is scored like a scorecard, which compares
+# the groups (here, cases) and needs the optional fairlearn package.
+metrics = ["roc_auc", "accuracy", "balanced_accuracy", "f1"]
+
+[critic]
+techniques = "scorecard, permutation_importance"
+
+# A scorecard compares a model across a study's groups unless its metrics
+# are named. The groups here are cases, so the comparison would mean nothing.
+[scorecard_parameters]
+metrics = ["roc_auc", "accuracy", "balanced_accuracy", "f1"]
+
+[permutation_importance_parameters]
+scoring = "roc_auc"
+
+[artist]
+techniques = "roc_curve, importance_plot, partial_dependence"
+
+[roc_curve_parameters]
+title = "How well the best model separates reversals from affirmances"
+
+[importance_plot_parameters]
+title = "The features whose shuffling lowers the ROC AUC most"
+
+[partial_dependence_parameters]
+title = "The best model's chance of reversal, by the judge's traits"
+features = ["judge_activism", "partisan_pressure", "ideological_pressure"]

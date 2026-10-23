@@ -1,0 +1,13 @@
+target,variable,kind,pattern,value,ignorecase,dotall,note
+career,prosecutor,flag,U(\.|NITED) ?S(\.|TATES) ATTORNEY|DISTRICT ATTORNEY|PROSECUT|ATTORNEY GENERAL|STATE'?S ATTORNEY|COMMONWEALTH'?S ATTORNEY,,TRUE,FALSE,"A prosecutor's office, federal or state."
+career,public_defender,flag,PUBLIC DEFENDER|FEDERAL DEFENDER,,TRUE,FALSE,
+career,law_clerk,flag,LAW CLERK,,TRUE,FALSE,A clerkship at any court.
+career,supreme_court_clerk,flag,LAW CLERK.*SUPREME COURT OF THE UNITED STATES,,TRUE,FALSE,A clerkship at the Supreme Court.
+career,solicitor_general,flag,SOLICITOR GENERAL,,TRUE,FALSE,"The office of a solicitor general, federal or state."
+career,law_professor,flag,PROFESSOR,,TRUE,FALSE,Beyond Ideology found law professors more independent.
+career,justice_department,flag,DEPARTMENT OF JUSTICE|U(\.|NITED) ?S(\.|TATES) ATTORNEY,,TRUE,FALSE,"The Department of Justice, including a U.S. Attorney's office. Beyond Ideology found it with more partisanship."
+career,state_judge,flag,"(?:JUDGE|JUSTICE),\s+(?!U(?:\.|NITED) ?S(?:\.|TATES))[^\n]*(?:SUPERIOR|SUPREME|DISTRICT|CIRCUIT|COUNTY|MUNICIPAL|FAMILY|PROBATE|CRIMINAL|CHANCERY|APPELLATE|APPEALS|STATE)\s+COURT",,TRUE,FALSE,A state judgeship. Beyond Ideology found former state judges less partisan.
+career,legislative,flag,STATE SENAT|STATE REPRESENTATIVE|ASSEMBLY|LEGISLAT|HOUSE OF REPRESENTATIVES|U(\.|NITED) ?S(\.|TATES) SENATE|CONGRESS|COMMITTEE ON THE JUDICIARY,,TRUE,FALSE,"A legislature, as a member or on its staff. Beyond Ideology found legislative and executive experience with less independence."
+career,executive,flag,GOVERNOR|WHITE HOUSE|COUNSEL TO THE PRESIDENT|EXECUTIVE OFFICE|SECRETARY OF|DEPARTMENT OF (?!JUSTICE)|MAYOR,,TRUE,FALSE,"An executive office, federal or state, other than the Department of Justice."
+career,magistrate_or_bankruptcy_judge,flag,MAGISTRATE|BANKRUPTCY,,TRUE,FALSE,A federal magistrate or bankruptcy judgeship.
+career,private_practice,flag,PRIVATE PRACTICE,,TRUE,FALSE,
