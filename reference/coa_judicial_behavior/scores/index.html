@@ -1,0 +1,1919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ideology, activism, partisanship, and independence scores of federal appellate judges from CourtListener opinions">
+      
+      
+      
+        <link rel="canonical" href="https://WithPrecedent.github.io/coa_judicial_behavior/reference/coa_judicial_behavior/scores/">
+      
+      
+        <link rel="prev" href="../predictions/">
+      
+      
+        <link rel="next" href="../typology/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>scores - coa_judicial_behavior</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../css/material.css">
+    
+      <link rel="stylesheet" href="../../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coa_judicial_behavior.scores" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="coa_judicial_behavior" class="md-header__button md-logo" aria-label="coa_judicial_behavior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            coa_judicial_behavior
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> scores
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WithPrecedent/coa_judicial_behavior" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    WithPrecedent/coa_judicial_behavior
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tutorial/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contributing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="coa_judicial_behavior" class="md-nav__button md-logo" aria-label="coa_judicial_behavior" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    coa_judicial_behavior
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WithPrecedent/coa_judicial_behavior" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    WithPrecedent/coa_judicial_behavior
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../recipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> coa_judicial_behavior
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> coa_judicial_behavior
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../predictions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> predictions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> scores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> typology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../votes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> votes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../code_of_conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coverage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coverage Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    API
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> coa_judicial_behavior
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/WithPrecedent/coa_judicial_behavior/edit/master/src/coa_judicial_behavior/scores.py" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/WithPrecedent/coa_judicial_behavior/raw/master/src/coa_judicial_behavior/scores.py" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="coa_judicial_behavior.scores"></a>
+    <div class="doc doc-contents first">
+
+        <p>Scores the ideology, activism, partisanship, and independence of judges.</p>
+<p>The four scores follow the methods of Corey Rayburn Yung's studies of the
+judges of the federal courts of appeals:</p>
+<ul>
+<li><strong>Ideology</strong>: <em>Judged by the Company You Keep: An Empirical Study of the
+  Ideologies of Judges on the United States Courts of Appeals</em>, 51 B.C. L.
+  Rev. 1133 (2010).</li>
+<li><strong>Activism</strong>: <em>Flexing Judicial Muscle: An Empirical Study of Judicial
+  Activism in the Federal Courts</em>, 105 Nw. U. L. Rev. 1 (2011).</li>
+<li><strong>Partisanship and independence</strong>: <em>Beyond Ideology: An Empirical Study of
+  Partisanship and Independence in the Federal Courts</em>, 80 Geo. Wash. L.
+  Rev. 505 (2012).</li>
+<li><strong>All four, revised together</strong>: <em>A Typology of Judging Styles</em>, 107 Nw. U.
+  L. Rev. 1757 (2013).</li>
+</ul>
+<p>Each score is computed from a table of votes, with one row for each judge on
+each case (see <code>coa_judicial_behavior.votes</code>), in three steps: a raw score
+from rates of agreement and reversal, adjustments for what the judge could
+not choose (the mix of criminal and civil cases, the parties of the other
+judges of the "super-panel", and the circuit), and a common scale.</p>
+<p><strong>Ideology</strong> is an "agnostic" measure: judges who think alike vote together.
+Every judge is first given the party of the president who appointed the
+judge (-1 for a Democrat and 1 for a Republican), and the judge being scored
+is a blank slate. The Panel Score is the judge's rate of agreement with
+copanelists appointed by Republicans less the rate with those appointed by
+Democrats, and the District Score is the same for the district judges whose
+judgments the judge affirmed (an affirmance is an agreement and a reversal a
+disagreement). The District Score weights each standard of review by how
+rarely judgments are reversed under it, since affirming under a deferential
+standard says less about a judge than reversing under one:</p>
+<div class="highlight"><pre><span></span><code>Panel Score = sum over case types t of
+    share(t) * (RateAgree(Rep, t) - RateAgree(Dem, t))
+District Score = sum over t of share(t) * sum over standards s of
+    w(t, s) * (RateAffirm(Rep, t, s) - RateAffirm(Dem, t, s))
+</code></pre></div>
+<p>where <code>share(t)</code> is the average judge's share of criminal or civil cases and
+<code>w(t, s)</code> is proportional to the judge's votes under each standard times the
+inverse of the rate of reversal under it (normalized to sum to one within
+each case type, which keeps the District Score on the scale of the Panel
+Score, as the 2010 article sought by halving its sum).</p>
+<p><strong>Activism</strong> is the difference between how often a judge reversed under
+deferential standards of review and under de novo review. The de novo rate
+is the baseline that removes reversals for ideological or other reasons, so
+what is left is how often the judge failed to defer when the formal model of
+law says that the judge should have:</p>
+<div class="highlight"><pre><span></span><code>Activism Differential = sum over t of share(t) *
+    (ReversalRate(deferential, t) - ReversalRate(de novo, t))
+</code></pre></div>
+<p><strong>Partisanship</strong> is whether a judge applied the same neutral rule (the
+standard of review) differently to district judges appointed by the two
+parties. It is signed by the judge's own party, so that a Democratic
+appointee who favored Republican district judges is not partisan:</p>
+<div class="highlight"><pre><span></span><code>Partisanship = sum over t of share(t) *
+    ((DeferentialReversal(other party, t) - DeferentialReversal(own party, t))
+     - (NondeferentialReversal(other party, t) - NondeferentialReversal(own party, t)))
+</code></pre></div>
+<p><strong>Independence</strong> is how often a judge provoked disagreements (dissents and
+separate concurrences, by the judge or by a copanelist against the judge's
+opinion) beyond what ideological differences predict. The expected rates are
+the fitted values of a linear regression, across the judges scored, of the
+rates on how far each judge's ideology is from the mean of the judge's
+circuit:</p>
+<div class="highlight"><pre><span></span><code>Independence = DissentRate + ConcurrenceRate
+    - ExpectedDissentRate - ExpectedConcurrenceRate
+</code></pre></div>
+<p>A concurrence in part and dissent in part counts as a dissent only.</p>
+<p>The adjustments:</p>
+<ul>
+<li><strong>Case mix.</strong> Every rate is computed separately for criminal and civil
+  cases and weighted by the average judge's shares (<code>share(t)</code>). When a
+  judge has too few votes in a cell (fewer than <code>cell_minimum</code>), the
+  judge's rate in both kinds of cases is used, and else the rate of all
+  judges, which is how the studies "interpolated" thin cells.</li>
+<li><strong>Super-panel effects.</strong> The parties of a judge's copanelists and of the
+  district judge change how the judge votes. Each vote's super-panel is one
+  of six alignments ("RR-R", "RR-D", "DR-R", "DR-D", "DD-R", and "DD-D").
+  The score that a blank-slate judge would have from the alignments that
+  the judge happened to sit in (computed with the rates of all judges in
+  each alignment, so that offsetting alignments cancel) is subtracted.</li>
+<li><strong>Circuit.</strong> Judges who sat in more than one circuit are assumed to keep
+  their traits, so how their scores differ from circuit to circuit measures
+  the circuits. For each circuit, the traveling judges' votes there are
+  scored together, as one hypothetical judge, and compared with their
+  overall scores weighted by their votes there. The difference is the
+  circuit's differential, which is subtracted from the judges of the
+  circuit: divided by twice the number of judges of the circuit ("per
+  judge", as the 2010 and 2011 articles did) or by the number of traveling
+  votes in the circuit and multiplied by the judge's votes there ("per
+  vote", as the 2012 and 2013 articles did). "full" subtracts the whole
+  differential, weighted by the judge's votes in each circuit, which is not
+  in the articles.</li>
+<li><strong>Scale.</strong> The judges with at least <code>minimum</code> interactions with other
+  judges (two copanelists and a district judge on each vote; the studies
+  required 200) define the scale. Activism, partisanship, and independence
+  run from 0 to 100, and ideology from -100 (liberal) to 100
+  (conservative). Independence is placed on a logarithmic scale first.</li>
+</ul>
+<p>The 2013 article revised the earlier methods. <code>method = "typology"</code> (the
+default) follows it, and <code>method = "original"</code> follows each score's first
+article:</p>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>"original"</th>
+<th>"typology"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Panel and District Scores</td>
+<td>Added (2010).</td>
+<td>Weighted by the rate of disagreement at each level.</td>
+</tr>
+<tr>
+<td>Zero of the Ideology Score</td>
+<td>The judge whose rank is the number of Democratic appointees (2010).</td>
+<td>Equal agreement with both parties (no shift).</td>
+</tr>
+<tr>
+<td>Super-panel effects</td>
+<td>Ideology and partisanship.</td>
+<td>Ideology, activism, and partisanship.</td>
+</tr>
+<tr>
+<td>Circuit adjustment</td>
+<td>Per judge for ideology and activism (2010, 2011), per vote for partisanship (2012).</td>
+<td>Per vote for all three.</td>
+</tr>
+<tr>
+<td>Independence's expected rates</td>
+<td>From the scaled Ideology Score (2012).</td>
+<td>From the adjusted raw Ideology Score.</td>
+</tr>
+</tbody>
+</table>
+<p>Independence has no circuit adjustment in either, because judges seldom
+write separately when they travel.</p>
+
+
+<details class="contents" open>
+  <summary>Contents</summary>
+  <div class="admonition methods">
+<p class="admonition-title">Methods</p>
+<p>the versions of the methods.
+SCORES: the names of the four scores.
+score_judges: returns the four scores of every judge in a table of
+    votes.</p>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h1 id="coa_judicial_behavior.scores.score_judges" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">score_judges</span><span class="p">(</span><span class="n">votes</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'typology'</span><span class="p">,</span> <span class="n">minimum</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">cell_minimum</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">provoked</span><span class="o">=</span><span class="s1">'author'</span><span class="p">,</span> <span class="n">circuit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_offset</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+<a href="#coa_judicial_behavior.scores.score_judges" class="headerlink" title="Permanent link">&para;</a></h1>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the four scores of every judge in a table of votes.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>votes</code>
+            </td>
+            <td>
+                  <code><span title="pandas.DataFrame">DataFrame</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>a table of votes, with one row for each judge on each case,
+as <code>review_votes</code> makes it. It needs "case_id", "judge_nid",
+"judge_party", "court_num", "type_criminal", "review_standard",
+"vote_reversal", "judge_dissented", "judge_concurred",
+"judge_author", "district_party", and "alignment". "judge" and
+"judge_designated" are used if they are there.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>method</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>"typology" (the 2013 article's methods) or "original" (each
+score's first article). Defaults to "typology".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;typology&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>minimum</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>fewest interactions with other judges for a judge to define
+the scales. Defaults to 200, as in the studies.</p>
+              </div>
+            </td>
+            <td>
+                  <code>200</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cell_minimum</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>fewest votes in a cell (such as criminal cases under a
+deferential standard) for the judge's own rate in it to be used.
+Defaults to 5.</p>
+              </div>
+            </td>
+            <td>
+                  <code>5</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>provoked</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>whose separate opinions count toward a judge's
+independence besides the judge's own: "author" (those against
+the opinion that the judge wrote, as the 2012 article describes)
+or "panel" (those against any majority that the judge joined).
+Defaults to "author".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;author&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>circuit</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the circuit adjustment of ideology, activism, and
+partisanship: "per_judge", "per_vote", "full", or "none".
+Defaults to <code>None</code>, in which case each score's adjustment under
+<code>method</code> is used.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>log_offset</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>what is added to the shifted raw Independence Scores
+before their logarithm is taken, so that the lowest is not zero.
+Defaults to 0.01 (one percentage point).</p>
+              </div>
+            </td>
+            <td>
+                  <code>0.01</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>by</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>name of a column (such as "year") whose values are scored
+separately, as the studies scored one year. Defaults to <code>None</code>,
+in which case every vote is scored together.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if <code>method</code>, <code>provoked</code>, or <code>circuit</code> is not one of its
+choices.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="KeyError">KeyError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if <code>votes</code> lacks a column that is needed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="pandas.DataFrame">DataFrame</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A table with a row for each judge (and value of <code>by</code>), sorted from
+the most liberal Ideology Score. Its columns are described in the
+documentation of the project.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>src/coa_judicial_behavior/scores.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-234">234</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-235">235</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-236">236</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-237">237</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-238">238</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-239">239</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-240">240</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-241">241</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-242">242</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-243">243</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-244">244</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-245">245</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-246">246</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-247">247</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-248">248</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-249">249</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-250">250</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-251">251</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-252">252</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-253">253</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-254">254</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-255">255</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-256">256</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-257">257</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-258">258</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-259">259</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-260">260</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-261">261</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-262">262</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-263">263</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-264">264</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-265">265</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-266">266</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-267">267</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-268">268</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-269">269</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-276">276</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-277">277</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-278">278</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-279">279</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-283">283</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-285">285</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-286">286</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-287">287</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-288">288</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-289">289</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-290">290</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-291">291</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-292">292</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-293">293</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-294">294</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-295">295</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-296">296</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-297">297</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-298">298</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-299">299</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-300">300</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-301">301</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-302">302</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-303">303</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-304">304</a></span>
+<span class="normal"><a href="#coa_judicial_behavior.scores.score_judges--source--__codelineno-0-305">305</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-234"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-234" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-234"></a><span class="k">def</span><span class="w"> </span><span class="nf">score_judges</span><span class="p">(</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-235"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-235" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-235"></a>    <span class="n">votes</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-236"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-236" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-236"></a>    <span class="o">*</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-237"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-237" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-237"></a>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'typology'</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-238"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-238" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-238"></a>    <span class="n">minimum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-239"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-239" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-239"></a>    <span class="n">cell_minimum</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-240"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-240" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-240"></a>    <span class="n">provoked</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'author'</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-241"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-241" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-241"></a>    <span class="n">circuit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-242"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-242" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-242"></a>    <span class="n">log_offset</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-243"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-243" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-243"></a>    <span class="n">by</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-244"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-244" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-244"></a><span class="w">    </span><span class="sd">"""Returns the four scores of every judge in a table of votes.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-245"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-245" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-245"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-246"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-246" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-246"></a><span class="sd">    Args:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-247"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-247" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-247"></a><span class="sd">        votes: a table of votes, with one row for each judge on each case,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-248"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-248" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-248"></a><span class="sd">            as `review_votes` makes it. It needs "case_id", "judge_nid",</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-249"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-249" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-249"></a><span class="sd">            "judge_party", "court_num", "type_criminal", "review_standard",</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-250"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-250" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-250"></a><span class="sd">            "vote_reversal", "judge_dissented", "judge_concurred",</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-251"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-251" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-251"></a><span class="sd">            "judge_author", "district_party", and "alignment". "judge" and</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-252"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-252" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-252"></a><span class="sd">            "judge_designated" are used if they are there.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-253"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-253" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-253"></a><span class="sd">        method: "typology" (the 2013 article's methods) or "original" (each</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-254"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-254" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-254"></a><span class="sd">            score's first article). Defaults to "typology".</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-255"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-255" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-255"></a><span class="sd">        minimum: fewest interactions with other judges for a judge to define</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-256"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-256" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-256"></a><span class="sd">            the scales. Defaults to 200, as in the studies.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-257"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-257" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-257"></a><span class="sd">        cell_minimum: fewest votes in a cell (such as criminal cases under a</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-258"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-258" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-258"></a><span class="sd">            deferential standard) for the judge's own rate in it to be used.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-259"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-259" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-259"></a><span class="sd">            Defaults to 5.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-260"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-260" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-260"></a><span class="sd">        provoked: whose separate opinions count toward a judge's</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-261"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-261" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-261"></a><span class="sd">            independence besides the judge's own: "author" (those against</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-262"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-262" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-262"></a><span class="sd">            the opinion that the judge wrote, as the 2012 article describes)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-263"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-263" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-263"></a><span class="sd">            or "panel" (those against any majority that the judge joined).</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-264"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-264" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-264"></a><span class="sd">            Defaults to "author".</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-265"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-265" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-265"></a><span class="sd">        circuit: the circuit adjustment of ideology, activism, and</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-266"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-266" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-266"></a><span class="sd">            partisanship: "per_judge", "per_vote", "full", or "none".</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-267"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-267" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-267"></a><span class="sd">            Defaults to `None`, in which case each score's adjustment under</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-268"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-268" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-268"></a><span class="sd">            `method` is used.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-269"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-269" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-269"></a><span class="sd">        log_offset: what is added to the shifted raw Independence Scores</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-270"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-270" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-270"></a><span class="sd">            before their logarithm is taken, so that the lowest is not zero.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-271"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-271" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-271"></a><span class="sd">            Defaults to 0.01 (one percentage point).</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-272"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-272" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-272"></a><span class="sd">        by: name of a column (such as "year") whose values are scored</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-273"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-273" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-273"></a><span class="sd">            separately, as the studies scored one year. Defaults to `None`,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-274"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-274" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-274"></a><span class="sd">            in which case every vote is scored together.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-275"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-275" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-275"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-276"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-276" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-276"></a><span class="sd">    Raises:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-277"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-277" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-277"></a><span class="sd">        ValueError: if `method`, `provoked`, or `circuit` is not one of its</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-278"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-278" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-278"></a><span class="sd">            choices.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-279"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-279" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-279"></a><span class="sd">        KeyError: if `votes` lacks a column that is needed.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-280"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-280" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-280"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-281"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-281" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-281"></a><span class="sd">    Returns:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-282"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-282" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-282"></a><span class="sd">        A table with a row for each judge (and value of `by`), sorted from</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-283"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-283" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-283"></a><span class="sd">            the most liberal Ideology Score. Its columns are described in the</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-284"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-284" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-284"></a><span class="sd">            documentation of the project.</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-285"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-285" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-285"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-286"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-286" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-286"></a><span class="sd">    """</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-287"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-287" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-287"></a>    <span class="n">_check</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">METHODS</span><span class="p">,</span> <span class="s1">'method'</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-288"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-288" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-288"></a>    <span class="n">_check</span><span class="p">(</span><span class="n">provoked</span><span class="p">,</span> <span class="n">_PROVOKED</span><span class="p">,</span> <span class="s1">'provoked'</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-289"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-289" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-289"></a>    <span class="k">if</span> <span class="n">circuit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-290"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-290" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-290"></a>        <span class="n">_check</span><span class="p">(</span><span class="n">circuit</span><span class="p">,</span> <span class="n">_CIRCUIT_METHODS</span><span class="p">,</span> <span class="s1">'circuit'</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-291"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-291" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-291"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-292"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-292" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-292"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">score</span><span class="p">(</span><span class="n">frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-293"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-293" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-293"></a>        <span class="k">return</span> <span class="n">_score</span><span class="p">(</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-294"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-294" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-294"></a>            <span class="n">frame</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">minimum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">minimum</span><span class="p">),</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-295"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-295" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-295"></a>            <span class="n">cell_minimum</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">cell_minimum</span><span class="p">),</span> <span class="n">provoked</span> <span class="o">=</span> <span class="n">provoked</span><span class="p">,</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-296"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-296" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-296"></a>            <span class="n">circuit</span> <span class="o">=</span> <span class="n">circuit</span><span class="p">,</span> <span class="n">log_offset</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">log_offset</span><span class="p">))</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-297"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-297" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-297"></a>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-298"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-298" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-298"></a>    <span class="k">if</span> <span class="n">by</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-299"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-299" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-299"></a>        <span class="k">return</span> <span class="n">score</span><span class="p">(</span><span class="n">votes</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-300"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-300" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-300"></a>    <span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-301"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-301" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-301"></a>    <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">votes</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-302"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-302" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-302"></a>        <span class="n">table</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-303"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-303" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-303"></a>        <span class="n">table</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">by</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-304"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-304" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-304"></a>        <span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+</span><span id="coa_judicial_behavior.scores.score_judges--source--__span-0-305"><a id="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-305" name="coa_judicial_behavior.scores.score_judges--source--__codelineno-0-305"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../predictions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: &lt;code class=&#34;doc-symbol doc-symbol-nav doc-symbol-module&#34;&gt;&lt;/code&gt; predictions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> predictions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../typology/" class="md-footer__link md-footer__link--next" aria-label="Next: &lt;code class=&#34;doc-symbol doc-symbol-nav doc-symbol-module&#34;&gt;&lt;/code&gt; typology">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                <code class="doc-symbol doc-symbol-nav doc-symbol-module"></code> typology
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright, 2026 Corey Rayburn Yung
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/WithPrecedent" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/coa-judicial-behavior/" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/_markdown_exec_pyodide.js"></script>
+      
+    
+  </body>
+</html>
