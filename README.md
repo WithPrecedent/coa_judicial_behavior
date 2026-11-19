@@ -92,17 +92,15 @@ places where the articles left a choice open and how this project made it.
 courtpy extracts the opinions of the twelve regional circuits from
 CourtListener's bulk data and parses them with its federal rules, which find
 the judges of the panel, who wrote, joined, concurred, or dissented, the
-disposition, the parties, and four standards of review. This project's
-rules, in
-[`instructions/review.csv`](https://github.com/WithPrecedent/coa_judicial_behavior/blob/main/src/coa_judicial_behavior/instructions/review.csv),
-add what the scores need:
+disposition, the parties, and the standards of review. Its "review" rules
+(part of its "federal" rulebook) add what the scores need:
 
 | Variable | Meaning |
 | --- | --- |
 | `district_judges` | The district judge's name, from the lines about the court appealed from, in each circuit's form ("Catherine C. Blake, District Judge", "(Hon. Lewis A. Kaplan, Judge)", "District Judge: Honorable Joel A. Pisano", and others). |
 | `review_district`, `review_agency` | Whether the appeal came from a district court, or is a petition to review an agency. |
 | `review_immigration` | Immigration review, which the studies left out (as they left out habeas corpus). |
-| `standard_substantial_evidence`, `standard_plain_error`, `standard_named` | Two deferential standards that courtpy does not find, and words that announce any standard of review. |
+| `standard_substantial_evidence`, `standard_plain_error`, `standard_named` | Two more deferential standards, and words that announce any standard of review (from courtpy's general rules). |
 
 The techniques (which importing the package adds to the `amos` library) then
 build the votes:
@@ -272,7 +270,7 @@ with this project's techniques available.
 | Path | Holds |
 | --- | --- |
 | `studies/judicial_behavior.toml` | The settings of the study. |
-| `src/coa_judicial_behavior/instructions/` | The rules that find the district judge and the review (`review.csv`), and that code the judges' careers (`careers.csv`). |
+| `src/coa_judicial_behavior/instructions/careers.csv` | The rules that code the judges' careers. |
 | `src/coa_judicial_behavior/votes.py` | `code_review`, `code_district_judge`, and `review_votes`, which make the votes. |
 | `src/coa_judicial_behavior/scores.py` | `score_judges`, the four scores. |
 | `src/coa_judicial_behavior/typology.py` | `classify`, the judging styles. |

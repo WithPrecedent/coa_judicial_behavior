@@ -29,7 +29,7 @@ Before parsing every opinion, extract a few and check what the rules find:
 
 ```sh
 uv run coa-judicial-behavior download bulk --courts ca4 --start 2019-01-01 --end 2019-01-31 --folder data/court_listener
-uv run coa-judicial-behavior parse data/court_listener --rulebooks federal src/coa_judicial_behavior/instructions/review.csv --output data/sample.csv
+uv run coa-judicial-behavior parse data/court_listener --rulebooks federal --output data/sample.csv
 ```
 
 In `data/sample.csv`, `district_judges` should name the district judge of

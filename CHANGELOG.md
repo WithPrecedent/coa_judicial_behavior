@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 <!-- insertion marker -->
 
+## Unreleased
+
+* The project uses courtpy 0.4.0 and amos 0.10.1. pyarrow is no longer a
+  direct dependency (amos brings it).
+* **Breaking:** the rules that found the district judge, the origin of the
+  appeal, immigration review, and two more deferential standards
+  (`instructions/review.csv`) are part of courtpy's "federal" rulebook now,
+  so the file and `RULEBOOK` are gone, and the study's settings name only
+  "federal".
+* The settings use courtpy's new names for its coders: `code_panels` (for
+  `code_judges`) and `add_politics` (for `code_politics`).
+* `coa-judicial-behavior` is courtpy's program (`courtpy.cli.main`) with
+  this project's `scores` command added, so `coa-judicial-behavior judges`
+  is courtpy's `judges` command (with its options, such as
+  `--martin-quinn` and `--output`), coding careers with
+  `instructions/careers.csv` by default.
+* The scores, predictions, and votes use courtpy's helpers for tables of
+  cases (`column_as_flags`, `flags_as_numbers`, `select_whole_cases`, and
+  `split_cell`) and settings (`listify` and `to_bool`) in place of their own
+  copies. A `train` query that does not select rows now raises courtpy's
+  error.
+
 ## 0.0.1
 
 * Created the repository from the `snickerdoodle` template.

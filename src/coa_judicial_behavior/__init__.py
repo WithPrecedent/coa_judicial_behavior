@@ -16,8 +16,6 @@ Contents:
     Project: `amos.Project` (which courtpy offers under the same name), which
         loads and analyzes the cases that a settings file describes.
     ReviewVotes: makes the table of votes, with each vote's super-panel.
-    RULEBOOK: the path of the rules that find what the scores need in each
-        opinion.
     ScoreJudges: scores the judges and adds the predictors to the votes.
     Typology: the judging styles of the judges.
     ValidateScores: repeats the studies' tests of the scores.
@@ -36,7 +34,6 @@ __author__: str = 'Corey Rayburn Yung'
 
 __all__: list[str] = [
     'PREDICTORS',
-    'RULEBOOK',
     'CodeDistrictJudge',
     'CodeReview',
     'Project',
@@ -66,4 +63,4 @@ from .predictions import (
 )
 from .scores import score_judges
 from .typology import Typology, classify
-from .votes import RULEBOOK, CodeDistrictJudge, CodeReview, ReviewVotes
+from .votes import CodeDistrictJudge, CodeReview, ReviewVotes

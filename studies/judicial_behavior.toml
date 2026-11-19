@@ -63,17 +63,16 @@ download = "bulk"
 # filter_rows to do the same.
 courts = "federal_circuits"
 start_date = "2008-01-01"
-# courtpy's federal rules, and the rules that find the district judge, the
-# origin of the appeal, immigration review, and two more deferential
-# standards of review.
-rulebooks = "federal, src/coa_judicial_behavior/instructions/review.csv"
+# courtpy's federal rules, whose "review" rules find the district judge,
+# the origin of the appeal, and immigration review.
+rulebooks = "federal"
 workers = 8
 # courtpy's coders find the parties, whether each case is criminal, and
-# whether the decision reversed. "code_judges" finds each panel's judges in
-# the roster and "code_politics" adds the party of the president.
+# whether the decision reversed. "code_panels" finds each panel's judges in
+# the roster and "add_politics" adds the party of the president.
 # This project's "code_district_judge" finds the district judge in the
 # roster, and "code_review" sorts each case by its standard of review.
-coders = "code_parties, code_case_type, code_outcome, code_judges, code_politics, code_district_judge, code_review"
+coders = "code_parties, code_case_type, code_outcome, code_panels, add_politics, code_district_judge, code_review"
 # Parquet keeps the lists of names and the types of the columns.
 save = "appeals.parquet"
 reuse = true

@@ -134,6 +134,7 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+from courtpy import cases
 
 METHODS: tuple[str, ...] = ('typology', 'original')
 SCORES: tuple[str, ...] = (
@@ -854,10 +855,10 @@ def _prepare(
         message = f'the scores need the columns {missing} of the votes'
         raise KeyError(message)
     votes = votes[votes['judge_nid'].notna()]
-    dissented = _flags(votes['judge_dissented'])
+    dissented = cases.column_as_flags(votes, 'judge_dissented')
     party = pd.to_numeric(votes['judge_party'], errors = 'coerce')
     district = pd.to_numeric(votes['district_party'], errors = 'coerce')
-    reversed_ = _numbers(votes['vote_reversal'])
+    reversed_ = cases.flags_as_numbers(votes['vote_reversal'])
     prepared = pd.DataFrame({
         'unit': pd.to_numeric(votes['judge_nid']).astype('int64'),
         'case_id': votes['case_id'].astype(str),
@@ -866,7 +867,7 @@ def _prepare(
             else None),
         'party': party,
         'court_num': pd.to_numeric(votes['court_num'], errors = 'coerce'),
-        'criminal': _flags(votes['type_criminal']),
+        'criminal': cases.column_as_flags(votes, 'type_criminal'),
         'standard': votes['review_standard'].astype(object).where(
             votes['review_standard'].isin(_STANDARDS), 'unclear'),
         'district_party': district.where(district.isin(_PARTIES)),
@@ -874,20 +875,17 @@ def _prepare(
         'reversed': reversed_,
         'affirmed': 1 - reversed_,
         'dissented': dissented,
-        'concurred': _flags(votes['judge_concurred']) & ~dissented,
-        'author': _flags(votes['judge_author']),
-        'designated': (
-            _flags(votes['judge_designated'])
-            if 'judge_designated' in votes.columns
-            else pd.Series(False, index = votes.index))},
+        'concurred': cases.column_as_flags(votes, 'judge_concurred') & ~dissented,
+        'author': cases.column_as_flags(votes, 'judge_author'),
+        'designated': cases.column_as_flags(votes, 'judge_designated')},
         index = votes.index)
     prepared['copartisan'] = (district == party).astype(object).where(
         district.isin(_PARTIES) & party.isin(_PARTIES))
-    cases = prepared['case_id']
+    case_ids = prepared['case_id']
     for kind, column in (
         ('dissented', 'dissent_events'), ('concurred', 'concurrence_events')):
         own = prepared[kind].astype(int)
-        others = own.groupby(cases).transform('sum') - own
+        others = own.groupby(case_ids).transform('sum') - own
         provoking = (
             prepared['author'] if provoked == 'author'
             else ~prepared['dissented'])
@@ -1071,19 +1069,6 @@ def _fit(
     return fitted
 
 
-def _flags(column: pd.Series) -> pd.Series:
-    """Returns a column of flags as plain booleans.
-
-    Args:
-        column: flags, which may be missing.
-
-    Returns:
-        The flags, with missing values false.
-
-    """
-    return column.astype('boolean').fillna(False).astype(bool)
-
-
 def _mode(values: pd.Series) -> float:
     """Returns the most common value, or a missing value if there is none.
 
@@ -1098,22 +1083,6 @@ def _mode(values: pd.Series) -> float:
     if counts.empty:
         return np.nan
     return float(counts[counts == counts.max()].index.min())
-
-
-def _numbers(column: pd.Series) -> pd.Series:
-    """Returns a column of flags as numbers.
-
-    Args:
-        column: flags, which may be missing.
-
-    Returns:
-        1.0 for true, 0.0 for false, and NaN for missing values.
-
-    """
-    return pd.Series(
-        column.astype('boolean').astype('Float64').to_numpy(
-            dtype = 'float64', na_value = np.nan),
-        index = column.index)
 
 
 def _paired(pairs: pd.DataFrame, votes: pd.DataFrame) -> pd.DataFrame:

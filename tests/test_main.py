@@ -15,7 +15,6 @@ from coa_judicial_behavior import __main__ as commands
 
 def test_coa_judicial_behavior() -> None:
     assert coa_judicial_behavior.__version__ == '0.0.1'
-    assert coa_judicial_behavior.RULEBOOK.is_file()
     assert commands.CAREERS.is_file()
 
 
@@ -48,8 +47,8 @@ def test_judges_command(
         return roster
 
     monkeypatch.setattr(courtpy.judges.Roster, 'from_fjc', from_fjc)
-    assert commands.main(['judges']) == 0
-    assert settings['rulebook'] == commands.CAREERS
+    assert commands.main(['-q', 'judges']) == 0
+    assert settings['rulebook'] == str(commands.CAREERS)
     assert settings['jcs'] is True
     assert 'A roster of 17 judges' in capsys.readouterr().out
     # The project's career rules code the fictional careers.
@@ -63,4 +62,6 @@ def test_judges_command(
 def test_help(capsys: pytest.CaptureFixture[str]) -> None:
     with pytest.raises(SystemExit):
         commands.main(['--help'])
-    assert 'two commands of its own' in capsys.readouterr().out
+    shown = capsys.readouterr().out
+    assert shown.startswith('usage: coa-judicial-behavior')
+    assert 'scores' in shown and 'judges' in shown and 'run' in shown

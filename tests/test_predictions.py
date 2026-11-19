@@ -63,7 +63,8 @@ def test_score_judges_technique(simulation: Simulation) -> None:
     assert entry['technique'] == 'score_judges'
     assert entry['scored_votes'] == int((data['year'] == 2008).sum())
     assert 'judge_activism' in entry['created']
-    with pytest.raises(ValueError, match = 'must select rows'):
+    # A query must select rows (courtpy's select_whole_cases).
+    with pytest.raises(TypeError):
         predictions.ScoreJudges(parameters = {'train': 'year + 1'}).apply(
             amos.Dataset(simulation.votes.copy()))
 

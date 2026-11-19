@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from typing import Any
+
+import amos
 import courtpy
 import numpy as np
 import pandas as pd
@@ -43,24 +46,31 @@ OPENINGS: dict[str, tuple[str, list[str]]] = {
 
 
 @pytest.fixture(scope = 'module')
-def rulebook() -> courtpy.Rulebook:
-    """Returns the project's rules."""
-    return courtpy.Rulebook.load(votes.RULEBOOK)
+def rulebook() -> amos.parsers.Rulebook:
+    """Returns courtpy's rules that find what the scores need."""
+    return amos.parsers.Rulebook.create('general', 'review')
+
+
+def apply(rulebook: amos.parsers.Rulebook, sections: dict[str, str]) -> dict[str, Any]:
+    """Returns what the rules find in the sections of one case."""
+    table = pd.DataFrame({
+        column: [sections.get(column, '')] for column in rulebook.columns}, dtype = 'str')
+    return rulebook.apply(table).iloc[0].to_dict()
 
 
 @pytest.mark.parametrize('circuit', sorted(OPENINGS))
 def test_rules_find_district_judge(
-    rulebook: courtpy.Rulebook,
+    rulebook: amos.parsers.Rulebook,
     circuit: str) -> None:
     text, names = OPENINGS[circuit]
-    found = rulebook.apply({'opening_lines': text, 'opinion': ''})
-    assert found['district_judges'] == names
+    found = apply(rulebook, {'opening_lines': text})
+    assert courtpy.cases.split_cell(found['district_judges']) == names
     assert found['review_district']
     assert not found['review_agency']
 
 
-def test_rules_find_review(rulebook: courtpy.Rulebook) -> None:
-    found = rulebook.apply({
+def test_rules_find_review(rulebook: amos.parsers.Rulebook) -> None:
+    found = apply(rulebook, {
         'opening_lines': (
             'On Petition for Review of an Order of the Board of Immigration '
             'Appeals'),
@@ -68,7 +78,7 @@ def test_rules_find_review(rulebook: courtpy.Rulebook) -> None:
     assert found['review_agency']
     assert found['review_immigration']
     assert not found['review_district']
-    assert found['district_judges'] == []
+    assert courtpy.cases.split_cell(found['district_judges']) == []
     assert found['standard_substantial_evidence']
     assert found['standard_plain_error']
     assert found['standard_named']

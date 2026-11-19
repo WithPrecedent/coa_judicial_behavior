@@ -23,8 +23,6 @@ def test_judicial_behavior_study(
     loader = idea['load_court_listener_parameters']
     loader['download'] = 'none'
     loader['workers'] = 1
-    loader['rulebooks'] = (
-        f'federal, {coa_judicial_behavior.RULEBOOK.as_posix()}')
     idea['score_judges_parameters']['train'] = 'year <= 2015'
     idea['score_judges_parameters']['minimum'] = 100
     idea['score_judges_parameters']['clusters'] = 3
@@ -45,7 +43,7 @@ def test_judicial_behavior_study(
     techniques = [entry['technique'] for entry in result.history]
     assert techniques[:8] == [
         'load_court_listener', 'code_parties', 'code_case_type',
-        'code_outcome', 'code_judges', 'code_politics',
+        'code_outcome', 'code_panels', 'add_politics',
         'code_district_judge', 'code_review']
     assert {'review_votes', 'score_judges', 'validate_scores'} <= set(
         techniques)

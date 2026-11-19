@@ -44,6 +44,7 @@ from typing import Any
 import amos
 import numpy as np
 import pandas as pd
+from courtpy import cases, utilities
 
 from . import scores as scoring
 from . import typology
@@ -144,17 +145,17 @@ class ScoreJudges(amos.Operation):
 
         """
         data = item.data
-        mask = _selected(data, train)
+        mask = cases.select_whole_cases(data, train)
         table = scoring.score_judges(
             data[mask], method = method, minimum = int(minimum),
             cell_minimum = int(cell_minimum), provoked = provoked,
             circuit = circuit, log_offset = float(log_offset), by = by)
         made = [self.name]
-        if _flag(styles):
+        if utilities.to_bool(styles):
             table = _classify(table, int(clusters), by, item, made)
         item.tables[self.name] = table
         created: list[str] = []
-        if _flag(merge):
+        if utilities.to_bool(merge):
             added = add_predictors(data, table, by = by, train = mask)
             added['holdout'] = ~mask.to_numpy()
             created = [c for c in added.columns if c not in data.columns]
@@ -204,7 +205,7 @@ class ValidateScores(amos.Describer):
         """
         return validate(
             item.data, holdout_only = holdout_only,
-            tests = _listify(tests) or None)
+            tests = utilities.listify(tests) or None)
 
 
 def add_predictors(
@@ -474,39 +475,6 @@ def _expected_reversal(
     return first.fillna(second)
 
 
-def _flag(value: Any) -> bool:
-    """Returns a setting as a boolean.
-
-    Args:
-        value: a boolean, or text such as "true" or "no".
-
-    Returns:
-        Whether the setting is on.
-
-    """
-    if isinstance(value, str):
-        return value.strip().lower() in {'true', 'yes', 'y', '1', 'on'}
-    return bool(value)
-
-
-def _listify(value: Sequence[str] | str | None) -> list[str]:
-    """Returns a setting as a list of names.
-
-    Args:
-        value: a name, names separated by commas, a sequence of names, or
-            `None`.
-
-    Returns:
-        The names.
-
-    """
-    if value is None:
-        return []
-    if isinstance(value, str):
-        return [v.strip() for v in value.split(',') if v.strip()]
-    return [str(v) for v in value]
-
-
 def _probit(data: pd.DataFrame, outcome: str, measure: str) -> dict[str, Any]:
     """Returns a probit regression of an outcome on one measure.
 
@@ -548,29 +516,3 @@ def _probit(data: pd.DataFrame, outcome: str, measure: str) -> dict[str, Any]:
         'p_value': float(fitted.pvalues[1]),
         'pseudo_r2': float(fitted.prsquared),
         'observations': int(usable.sum())}
-
-
-def _selected(data: pd.DataFrame, query: str | None) -> pd.Series:
-    """Returns which rows a query selects.
-
-    Args:
-        data: the rows.
-        query: the query, as `pandas.DataFrame.eval` reads it, or `None`.
-
-    Raises:
-        ValueError: if the query does not return a flag for each row.
-
-    Returns:
-        Whether each row is selected (every row, without a query).
-
-    """
-    if not query:
-        return pd.Series(True, index = data.index)
-    selected = data.eval(query)
-    if (
-        not isinstance(selected, pd.Series)
-        or len(selected) != len(data)
-        or not pd.api.types.is_bool_dtype(selected.dtype)):
-        message = f'the query {query!r} must select rows of the votes'
-        raise ValueError(message)
-    return selected.astype('boolean').fillna(False).astype(bool)

@@ -35,12 +35,10 @@ dependencies = [
     # "statistics" adds statsmodels (the probit tests of the scores) and
     # pyfixest, "plots" the figures, and "encoders" the one-hot encoding of
     # the predictions.
-    "amos[encoders,plots,statistics]>=0.4.0",
-    "courtpy>=0.3.0",
+    "amos[encoders,plots,statistics]>=0.10.1",
+    "courtpy>=0.4.0",
     "numpy>=1.26",
     "pandas>=3.0",
-    # Saves tables of cases as parquet files, which keep lists and types.
-    "pyarrow>=15",
     # Ward's clustering of the judging styles.
     "scipy>=1.11"]
 

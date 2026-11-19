@@ -9,13 +9,13 @@ of them, on the standard of review that the panel applied, and on the
 parties of the presidents who appointed them.
 
 courtpy finds most of what that needs: the judges of each panel and who
-dissented or concurred (`code_judges` and its `judge_votes`), whether the
+dissented or concurred (`code_panels` and its `vote_table`), whether the
 decision reversed (`code_outcome`), whether the case is criminal
-(`code_case_type`), and four standards of review (the federal rules'
-`standard_...` flags). The rulebook in "instructions/review.csv" adds the
-rest: the district judge's name, whether the appeal came from a district
-court, immigration review (which the studies left out), and two more
-deferential standards. Three techniques, which are added to the `amos`
+(`code_case_type`), and the standards of review (the `standard_...` flags of
+courtpy's general rules, including substantial evidence and plain error).
+courtpy's "review" rules (part of its "federal" rulebook) add the rest: the
+district judge's name, whether the appeal came from a district court, and
+immigration review (which the studies left out). Three techniques, which are added to the `amos`
 library as soon as coa_judicial_behavior is imported, then put it together:
 
 * `code_review` (an `amos.Munger`) sorts each case by the standard of review
@@ -36,7 +36,6 @@ Contents:
         cases that the studies left out.
     DEFERENTIAL: the flags of the deferential standards of review.
     NON_DEFERENTIAL: the flags of the nondeferential standards of review.
-    RULEBOOK: the path of the rulebook that finds what the scores need.
     ReviewVotes: makes the table of votes.
     STANDARDS: the categories of the standard of review.
     describe_panels: adds the super-panel of each vote to a table of votes.
@@ -54,14 +53,12 @@ from typing import Any
 import amos
 import numpy as np
 import pandas as pd
-from courtpy import judges
+from courtpy import cases, judges, utilities
 
 DEFERENTIAL: tuple[str, ...] = (
     'standard_clear_error', 'standard_abuse_disc', 'standard_arb_cap',
     'standard_substantial_evidence', 'standard_plain_error')
 NON_DEFERENTIAL: tuple[str, ...] = ('standard_de_novo',)
-RULEBOOK: pathlib.Path = (
-    pathlib.Path(__file__).parent / 'instructions' / 'review.csv')
 STANDARDS: tuple[str, ...] = ('deferential', 'non_deferential', 'unclear')
 # Habeas corpus and immigration cases were left out of the studies because
 # their standards of review are unique (the deference of AEDPA, and the
@@ -94,9 +91,9 @@ class CodeReview(amos.Munger):
     | `review_excluded` | Whether the case is one that the studies left out: habeas corpus or immigration. |
     | `review_of_district` | Whether the case reviews a district court: the appeal came from one (or its judge was found), and it is not a petition to review an agency. |
 
-    Needs the `standard_...` flags. Uses the columns that
-    "instructions/review.csv" makes, and the habeas and immigration flags of
-    courtpy's civil rules, if they exist.
+    Needs the `standard_...` flags. Uses the columns that courtpy's "review"
+    rules make, and the habeas and immigration flags of courtpy's civil
+    rules, if they exist.
 
     """
 
@@ -128,8 +125,8 @@ class CodeReview(amos.Munger):
             The cases, with the new columns.
 
         """
-        deferring = _any(data, _listify(deferential) or DEFERENTIAL)
-        novo = _any(data, _listify(non_deferential) or NON_DEFERENTIAL)
+        deferring = _any(data, utilities.listify(deferential) or DEFERENTIAL)
+        novo = _any(data, utilities.listify(non_deferential) or NON_DEFERENTIAL)
         if deferring is None or novo is None:
             message = (
                 f'{self.name!r} needs the flags of the standards of review '
@@ -147,7 +144,7 @@ class CodeReview(amos.Munger):
         named = _any(data, ['standard_named'])
         data['review_has_standard'] = (
             deferring | novo | (False if named is None else named))
-        left_out = _any(data, _listify(excluded) or _EXCLUDED)
+        left_out = _any(data, utilities.listify(excluded) or _EXCLUDED)
         data['review_excluded'] = (
             pd.Series(False, index = data.index) if left_out is None
             else left_out)
@@ -167,7 +164,7 @@ class CodeReview(amos.Munger):
 class CodeDistrictJudge(amos.Munger):
     """Finds the district judge whose judgment each case reviews.
 
-    Each name in "district_judges" (which "instructions/review.csv" finds in
+    Each name in "district_judges" (which courtpy's "review" rules find in
     the lines about the court appealed from) is matched to a judge in a
     roster (see `courtpy.judges.Roster`), among the district judges of the
     case's circuit who were serving in its year. The first name that fits
@@ -225,7 +222,7 @@ class CodeDistrictJudge(amos.Munger):
         if attributes is None:
             attributes = ['jcs'] if 'jcs' in table.columns else []
         wanted = ['party', *[
-            a for a in _listify(attributes) if a in table.columns]]
+            a for a in utilities.listify(attributes) if a in table.columns]]
         district = table[table['court_type'] == _DISTRICT_COURT]
         circuits = {
             int(float(str(number))): judges.Roster(rows, grace = found.grace)
@@ -236,7 +233,7 @@ class CodeDistrictJudge(amos.Munger):
             data[column], data['court_num'], data['year'], panels,
             strict = True):
             rows.append(_district_judge(
-                _names(names), circuits.get(_whole(court) or -1),
+                cases.split_cell(names), circuits.get(_whole(court) or -1),
                 _whole(year), panel, wanted))
         added = pd.DataFrame(rows, index = data.index)
         data['district_judge'] = added['district_judge'].astype(object)
@@ -284,7 +281,7 @@ class ReviewVotes(amos.Shaper):
 
         """
         return vote_table(
-            data, roster, outcomes = _listify(outcomes) or None)
+            data, roster, outcomes = utilities.listify(outcomes) or None)
 
 
 def describe_panels(votes: pd.DataFrame) -> pd.DataFrame:
@@ -380,7 +377,8 @@ def _any(data: pd.DataFrame, columns: Sequence[str]) -> pd.Series | None:
     present = [c for c in columns if c in data.columns]
     if not present:
         return None
-    flags = data[present].fillna(False).astype(bool)
+    flags = pd.concat(
+        [cases.column_as_flags(data, c) for c in present], axis = 1)
     return flags.any(axis = 1)
 
 
@@ -426,52 +424,16 @@ def _district_judge(
     return empty
 
 
-def _listify(value: Sequence[str] | str | None) -> list[str]:
-    """Returns a setting as a list of names.
-
-    Args:
-        value: a name, names separated by commas, a sequence of names, or
-            `None`.
-
-    Returns:
-        The names, which is empty if `value` is `None` or blank.
-
-    """
-    if value is None:
-        return []
-    if isinstance(value, str):
-        return [v.strip() for v in value.split(',') if v.strip()]
-    return [str(v) for v in value]
-
-
-def _names(value: Any) -> list[str]:
-    """Returns a cell of a table of cases as a list of names.
-
-    Args:
-        value: a list of names, the names joined by semicolons (as courtpy
-            saves lists in a CSV file), or a missing value.
-
-    Returns:
-        The names.
-
-    """
-    if isinstance(value, (list, tuple, np.ndarray)):
-        return [str(v) for v in value if str(v).strip()]
-    if isinstance(value, str):
-        return [v.strip() for v in value.split(';') if v.strip()]
-    return []
-
-
 def _panel_nids(data: pd.DataFrame) -> list[set[int]]:
     """Returns the numbers of the judges of each case's panel.
 
     Args:
         data: the cases, with the "judge1_nid", "judge2_nid", ... columns
-            that `code_judges` makes, if it was applied.
+            that `code_panels` makes, if it was applied.
 
     Returns:
         The numbers of each case's judges who were found, which are empty
-            for every case if `code_judges` was not applied.
+            for every case if `code_panels` was not applied.
 
     """
     columns = [
