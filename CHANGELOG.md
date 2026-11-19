@@ -23,8 +23,8 @@ All notable changes to this project will be documented in this file.
 * The scores, predictions, and votes use courtpy's helpers for tables of
   cases (`column_as_flags`, `flags_as_numbers`, `select_whole_cases`, and
   `split_cell`) and settings (`listify` and `to_bool`) in place of their own
-  copies. A `train` query that does not select rows now raises courtpy's
-  error.
+  copies. A `train` query that does not select rows raises courtpy's
+  `ValueError`, which names the query (courtpy 0.4.1).
 
 ## 0.0.1
 

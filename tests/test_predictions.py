@@ -64,7 +64,7 @@ def test_score_judges_technique(simulation: Simulation) -> None:
     assert entry['scored_votes'] == int((data['year'] == 2008).sum())
     assert 'judge_activism' in entry['created']
     # A query must select rows (courtpy's select_whole_cases).
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError, match = 'must say whether each row'):
         predictions.ScoreJudges(parameters = {'train': 'year + 1'}).apply(
             amos.Dataset(simulation.votes.copy()))
 

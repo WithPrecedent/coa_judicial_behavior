@@ -36,7 +36,7 @@ dependencies = [
     # pyfixest, "plots" the figures, and "encoders" the one-hot encoding of
     # the predictions.
     "amos[encoders,plots,statistics]>=0.10.1",
-    "courtpy>=0.4.0",
+    "courtpy>=0.4.1",
     "numpy>=1.26",
     "pandas>=3.0",
     # Ward's clustering of the judging styles.

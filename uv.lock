@@ -559,7 +559,7 @@ tests = [
 [package.metadata]
 requires-dist = [
     { name = "amos", extras = ["encoders", "plots", "statistics"], specifier = ">=0.10.1" },
-    { name = "courtpy", specifier = ">=0.4.0" },
+    { name = "courtpy", specifier = ">=0.4.1" },
     { name = "numpy", specifier = ">=1.26" },
     { name = "pandas", specifier = ">=3.0" },
     { name = "scipy", specifier = ">=1.11" },
@@ -789,7 +789,7 @@ wheels = [
 
 [[package]]
 name = "courtpy"
-version = "0.4.0"
+version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "amos" },
@@ -802,9 +802,9 @@ dependencies = [
     { name = "pandas" },
     { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0f/e2/9584f90f556dc5a159e7dc5183831bbdc861ce61c266ab6f69416f7159a5/courtpy-0.4.0.tar.gz", hash = "sha256:4451dca60dc4bca0a8ad167589e62ef6d750b4dc18d5a3bf1a9f4668fbd479af", size = 211248, upload-time = "2026-11-19T03:32:22.781Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4c/2f/e1229b14234b4f97a317f7b171bf72d23809262a0beeaefde45a61691616/courtpy-0.4.1.tar.gz", hash = "sha256:22e47bc4da6a62b089756d5ad63d1e1e73949a57d2a8af30947eec7b718fbf0c", size = 211558, upload-time = "2026-11-19T15:39:58.248Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f9/55/750308193190bb9cc559236fe2cbd6267990972e423fa64357d703fe6bd3/courtpy-0.4.0-py3-none-any.whl", hash = "sha256:ba7eaa0065660a91174a20b94f926762ec2852e4e18b78498d5f1c28ae383ae4", size = 169745, upload-time = "2026-11-19T03:32:21.682Z" },
+    { url = "https://files.pythonhosted.org/packages/e0/d7/2fb987916dae4d5f4e8411b145c629f57ccaf7ce4234d6005d9f490e962c/courtpy-0.4.1-py3-none-any.whl", hash = "sha256:9abd8d65abbbaa71bb8cb95b5193a3a08fe7fa560d8b30bc5f35e440f6d7dee4", size = 169906, upload-time = "2026-11-19T15:39:56.663Z" },
 ]
 
 [[package]]
